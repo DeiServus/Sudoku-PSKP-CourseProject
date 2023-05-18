@@ -1,0 +1,277 @@
+:root {
+  --maintext: #121212;
+  --maingray: rgb(50, 50, 50);
+  --mainblue: #076aff;
+  --mainwhite: #fdfcfa;
+  --border: rgb(213, 213, 213);
+  --thick-border: #38475f;
+  --color1: rgb(233, 181, 172);
+  --color1-dark: rgb(201, 153, 145);
+  --color1-darker: rgb(170, 129, 122);
+  --color2: rgb(139, 125, 171);
+  --color2-dark: rgb(103, 93, 128);
+  --color2-darker: rgb(61, 85, 72);
+  --color3: rgb(167, 210, 238);
+}
+
+* {
+  color: var(--maintext);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Tilda Sans VF';
+}
+
+a {
+  color: var(--maintext);
+  text-decoration: none;
+}
+
+.text:focus {
+  border-color: var(--mainblue);
+  outline: none;
+}
+
+.Sudoku {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  height: 100vh;
+}
+
+.icon:hover {
+  stroke: #076aff;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.icon:not(:hover) {
+  stroke: gray;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tile {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 32px;
+  outline: none;
+  background-color: var(--color1);
+  border: 2px solid black;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.tile2 {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 32px;
+  outline: none;
+  background-color: var(--color3);
+  border: 2px solid black;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.taken {
+  background-color: var(--color1-dark);
+  color: var(--color2-darker);
+}
+
+.timer {
+  margin-left: auto;
+  flex-direction: row;
+  display: flex;
+}
+
+.levels {
+  margin-right: 30%;
+}
+
+.levels-button-order {
+  margin-left: 12px;
+}
+
+.levels-button {
+  margin-right: 3px;
+}
+
+.levels-timer-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.base-cell {
+  margin-left: -1px;
+  margin-top: -1px;
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  font-size: 32px;
+  outline: none;
+  border: 1px solid gray;
+}
+
+.thicker-left-border {
+  border-left: 2px solid var(--thick-border);
+}
+
+.thicker-right-border {
+  border-right: 2px solid var(--thick-border);
+}
+
+.thicker-top-border {
+  border-top: 2px solid var(--thick-border);
+}
+
+.thicker-bottom-border {
+  border-bottom: 2px solid var(--thick-border);
+}
+
+.initial {
+  margin-left: -1px;
+  margin-top: -1px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 32px;
+  outline: none;
+  background-color: var(--color1-darker);
+  border: 2px solid black;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 0fr);
+  padding: 15px;
+}
+
+.interface {
+  width: 490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.info-interface input {
+  width: 250px;
+  height: 40px;
+  text-align: center;
+  font-size: 24px;
+  outline: none;
+  font-weight: 600;
+  color: var(--thick-border);
+  border: none;
+  margin-bottom: 20px;
+}
+
+.action-interface {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.sudoku-action-button:disabled {
+  transform: translateY(2px);
+  border: 2px solid var(--mainblue);
+  color: #076aff;
+  background-color: transparent;
+  cursor: default;
+}
+
+.login-button:hover,
+.sudoku-action-button:enabled:hover {
+  transform: translateY(-2px);
+  background-color: var(--maingray);
+  transition: 0.5s ease;
+}
+
+.login-button:not(:hover),
+.sudoku-action-button:enabled:not(:hover) {
+  transform: translateY(2px);
+  background-color: var(--mainblue);
+  transition: 0.5s ease;
+}
+
+.register-button:hover {
+  color: var(--maingray);
+  transition: 0.5s ease;
+}
+
+.base-button {
+  font-weight: 500;
+  height: 55px;
+  font-size: 16pt;
+  width: 350px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.login-button {
+  margin-top: 15px;
+  border: none;
+  background: var(--mainblue);
+  color: var(--mainwhite);
+}
+
+.register-button {
+  cursor: pointer;
+  color: var(--mainblue);
+}
+
+.title {
+  font-weight: 800;
+  font-size: 30pt;
+  margin-bottom: 50px;
+}
+
+.text {
+  height: 55px;
+  width: 350px;
+  font-size: 14pt;
+  border-radius: 14px;
+  border: solid 2px;
+  border-color: var(--border);
+  padding: 12px;
+}
+
+.wrapper {
+  margin-top: 15%;
+}
+
+.container {
+  align-items: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.elem {
+  margin-bottom: 15px;
+}
+
+.sudoku-action-button {
+  background-color: var(--mainblue);
+  border: none;
+  font-weight: 500;
+  color: var(--mainwhite);
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.exit-title {
+  display: flex;
+  flex-direction: row;
+}

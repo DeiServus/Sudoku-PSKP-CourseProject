@@ -1,0 +1,51 @@
+.wrapper-user-page {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.wrapper-aligner {
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-returning {
+  color: var(--mainblue);
+  font-weight: 600;
+  font-size: 24pt;
+  margin-bottom: 5px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-item:hover {
+  color: var(--mainblue);
+  transition: 0.5s ease;
+}
+
+.rating-text {
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-size: 13pt;
+  color: gray;
+}
+
+.header-wrapper {
+  margin-top: 20px;
+  display: flex;
+}
+
+.menu-item {
+  font-weight: 500;
+  font-size: 14pt;
+  margin-right: 140px;
+}
+
+.menu-last-item {
+  margin-top: 10px;
+  margin-left: auto;
+}

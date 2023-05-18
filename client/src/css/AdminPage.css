@@ -1,0 +1,111 @@
+.header-wrapper {
+  display: flex;
+}
+
+.admin-action-title {
+  font-weight: 500;
+  font-size: 14pt;
+  margin-bottom: 10px;
+}
+
+.admin-input {
+  margin-right: 10px;
+  height: 50px;
+  width: 20%;
+  font-size: 12pt;
+  border-radius: 14px;
+  border: solid 2px;
+  border-color: var(--border);
+  padding: 12px;
+}
+
+.admin-input:focus {
+  border-color: var(--mainblue);
+  outline: none;
+}
+
+.admin-panel-button {
+  width: 20%;
+  border: none;
+  background: var(--mainblue);
+  color: var(--mainwhite);
+}
+
+.admin-panel-button:hover {
+  height: 50px;
+  transform: translateY(-2px);
+  background-color: var(--maingray);
+  transition: 0.5s ease;
+}
+
+.admin-panel-title {
+  margin-bottom: 20px;
+}
+
+.comment-form-title {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.admin-panel-button:not(:hover) {
+  height: 50px;
+  transform: translateY(2px);
+  background-color: var(--mainblue);
+  transition: 0.5s ease;
+}
+
+.admin-register-int {
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.table-title {
+  font-size: 14pt;
+  margin-bottom: 10px;
+}
+
+th {
+  width: 250px;
+
+  font-weight: 500;
+  font-size: 14pt;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  background-color: var(--mainblue);
+  color: white;
+}
+
+.rating-column {
+  width: 100px;
+}
+
+td {
+  padding: 10px;
+  font-size: 13pt;
+}
+
+tr:nth-child(2n) {
+  background-color: rgb(242, 242, 242);
+}
+
+.refresh:hover {
+  transform: rotate(360deg);
+  transition: 0.7s ease;
+}
+
+.delete:hover {
+  stroke: rgb(222, 42, 19);
+}
+
+.icon-column {
+  width: 44px;
+}

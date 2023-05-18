@@ -1,0 +1,68 @@
+.chat-title {
+  width: 100%;
+  text-align: center;
+  font-size: 14pt;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.chat-form {
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.chat-input {
+  height: 50px;
+  width: 81%;
+  font-size: 12pt;
+  border-radius: 14px;
+  border: solid 2px;
+  border-color: var(--border);
+  padding: 12px;
+}
+
+.comment-input {
+  height: 50px;
+  width: 655px;
+  font-size: 12pt;
+  border-radius: 14px;
+  border: solid 2px;
+  border-color: var(--border);
+  padding: 12px;
+}
+
+.chat-input:focus,
+.comment-input:focus {
+  border-color: var(--mainblue);
+  outline: none;
+}
+
+.send-button {
+  cursor: pointer;
+  margin-left: auto;
+  padding-top: 3px;
+  padding-right: 2px;
+  border-radius: 14px;
+  height: 50px;
+  width: 50px;
+}
+
+.send-button:disabled {
+  border: var(--border) 2px solid;
+  background-color: white;
+  cursor: default;
+  transition: 0.5s ease;
+}
+
+.send-button:not(:disabled) {
+  border: var(--mainblue) 2px solid;
+  background-color: var(--mainblue);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.send-button:not(:disabled) .feather-send {
+  stroke: white;
+  transition: 0.5s ease;
+}
