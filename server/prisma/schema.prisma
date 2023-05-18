@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model comment {
+  id           Int          @id(map: "PK__comment__3213E83FF4ED5FE6") @default(autoincrement())
+  text         String       @db.NVarChar(50)
+  mark         Float
+  user_id      Int
+  user_profile user_profile @relation(fields: [user_id], references: [id], onUpdate: NoAction, map: "FK_comment_user_profile")
+}
+
+model game {
+  id           Int          @id(map: "PK__game__3213E83FD48648E5") @default(autoincrement())
+  result       Boolean
+  level_id     Int
+  user_id      Int
+  time         Int
+  level        level        @relation(fields: [level_id], references: [id], onUpdate: NoAction, map: "FK_game_level")
+  user_profile user_profile @relation(fields: [user_id], references: [id], onUpdate: NoAction, map: "FK_game_user_profile")
+}
+
+model level {
+  id    Int    @id(map: "PK__level__3213E83F1E26D8F5") @default(autoincrement())
+  title String @db.NChar(50)
+  game  game[]
+}
+
+model role {
+  id           Int            @id(map: "PK__role__3213E83F037CF7A0") @default(autoincrement())
+  title        String         @db.NVarChar(50)
+  user_profile user_profile[]
+}
+
+model sysdiagrams {
+  name         String @db.NVarChar(128)
+  principal_id Int
+  diagram_id   Int    @id(map: "PK__sysdiagr__C2B05B61EAC51075") @default(autoincrement())
+  version      Int?
+  definition   Bytes?
+
+  @@unique([principal_id, name], map: "UK_principal_name")
+}
+
+model user_profile {
+  id                     Int                     @id(map: "PK__user_pro__3213E83F0BE12794") @default(autoincrement())
+  login                  String                  @db.NVarChar(50)
+  password               String                  @db.NVarChar(Max)
+  email                  String                  @db.NVarChar(50)
+  rating                 Int
+  role_id                Int
+  isActivated            Boolean?                @default(false, map: "DF__user_prof__isAct__5CD6CB2B")
+  activationLink         String?                 @db.NVarChar(250)
+  comment                comment[]
+  emailVerificationLinks emailVerificationLinks?
+  game                   game[]
+  token                  token?
+  role                   role                    @relation(fields: [role_id], references: [id], onUpdate: NoAction, map: "FK_user_profile_role")
+}
+
+model emailVerificationLinks {
+  id           Int          @id(map: "PK__EmailVer__3213E83F9BCDFD18") @default(autoincrement())
+  email        String       @unique(map: "UQ__EmailVer__AB6E61648A3790E1") @db.NVarChar(250)
+  userId       Int          @unique(map: "UQ__EmailVer__CB9A1CFEDAE7E269")
+  user_profile user_profile @relation(fields: [userId], references: [id], onUpdate: NoAction, map: "FK_emailVerificationLinks_user_profile")
+}
+
+model token {
+  id           Int          @id(map: "PK__token__3213E83F431083A7") @default(autoincrement())
+  userId       Int          @unique(map: "UQ__token__CB9A1CFE4C943FA7")
+  refreshToken String       @unique(map: "UQ__token__D771D24AC86C67AA") @db.NVarChar(255)
+  user_profile user_profile @relation(fields: [userId], references: [id], onUpdate: NoAction, map: "FK_token_user_profile")
+}
